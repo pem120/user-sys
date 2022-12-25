@@ -1,0 +1,26 @@
+version: '3'
+networks:
+  snet:
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
+services:
+    web:
+      build: .
+      ports:
+        - 80:80
+      networks:
+        snet:
+          ipv4_address: 172.20.0.2
+    db:
+      image: "redis"
+      volumes:
+        - db-data:/data
+      ports:
+        - 6379:6379
+      networks:
+        snet:
+          ipv4_address: 172.20.0.3
+
+volumes:
+  db-data: {}
