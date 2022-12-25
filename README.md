@@ -1,3 +1,4 @@
 # user-sys
- A
- simple user system in python.Using redis as a db.
+ A simple user system in python.Using redis as a db.
+# setup 
+ docker compose 
